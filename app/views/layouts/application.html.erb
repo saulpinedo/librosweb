@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Librosweb</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+	<div id="plomo", class="menu-isquierdo col-md-2" >
+		<div class="titulo">
+			<%= image_tag("librosweb.jpg") %>			
+		</div>
+		
+			<ul >
+				<li class="babajo" ><i class="fa fa-home fa-1x"></i> Inicio</li>
+				<li class="babajo"> <i class="fa fa-book fa-1x"></i> Libros</li>
+				<li class="babajo"><i class="fa fa-file-text-o fa-1x"></i> Tutoriales</li>
+				<li class="babajo"><i class="fa fa-globe fa-1x"></i> Eventos</li>
+				<li class="babajo"><i class="fa fa-wechat fa-1x"></i> Foros</li>
+				<li class="babajo"><i class="fa fa-search fa-1x"></i> Buscar</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="col-md-8 central1" > 
+	<%= yield %>
+	</div>
+		
+	<div class="acomodar-derecha">
+			<%= image_tag("railslibro.png")  %>
+			<div class="textoderecha">
+		<h4 class="colorrojo"> Titulo</h4>
+		<ul>			
+			<li >Silex, el manual oficial</li>
+		</ul>
+
+		<h4 class="colorrojo"> Autor</h4>
+		<ul>			
+			<li>Fabian Pontencier, Igos Wiedler</li>
+		</ul>
+
+		<h4 class="colorrojo">Traductor</h4>
+		<ul>			
+			<li>Javier Eguiluz</li>
+		</ul>
+
+		<h4 class="colorrojo">Licencia</h4>
+		<ul>			
+			<li>CC BY-SA 3.0 Creative Commons</li>
+			<li>Atribucion - Compartir igual 3.0</li>
+		</ul>
+		
+	</div>
+
+		</div>
+	</div>
+	
+</body>
+</html>
