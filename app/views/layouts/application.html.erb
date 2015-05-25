@@ -13,9 +13,9 @@
 <body>
 
 	<div id="plomo", class="menu-isquierdo col-md-2" >
-		<div class="titulo">
-			<%= image_tag("librosweb.jpg") %>			
-		</div>
+			<div class="titulo">
+				<%= image_tag("librosweb.jpg") %>			
+			</div>
 		
 			<ul >
 				<li class="babajo" ><i class="fa fa-home fa-1x"></i> Inicio</li>
@@ -25,39 +25,39 @@
 				<li class="babajo"><i class="fa fa-wechat fa-1x"></i> Foros</li>
 				<li class="babajo"><i class="fa fa-search fa-1x"></i> Buscar</li>
 			</ul>
-		</div>
 	</div>
 	
-	<div class="col-md-8 central1" > 
-	<%= yield %>
-	</div>
-		
-	<div class="acomodar-derecha">
+	<div class="central1 col-md-10" > 
+	
+		<div class="col-md-8">
+			<%= yield %>
+		</div>	
+
+		<div class="acomodar-derecha col-md-3">
 			<%= image_tag("railslibro.png")  %>
 			<div class="textoderecha">
-		<h4 class="colorrojo"> Titulo</h4>
-		<ul>			
-			<li >Silex, el manual oficial</li>
-		</ul>
+				<h4 class="colorrojo"> Titulo</h4>
+				<ul>			
+					<li >Silex, el manual oficial</li>
+				</ul>
 
-		<h4 class="colorrojo"> Autor</h4>
-		<ul>			
-			<li>Fabian Pontencier, Igos Wiedler</li>
-		</ul>
+				<h4 class="colorrojo"> Autor</h4>
+				<ul>			
+					<li>Fabian Pontencier, Igos Wiedler</li>
+				</ul>
 
-		<h4 class="colorrojo">Traductor</h4>
-		<ul>			
-			<li>Javier Eguiluz</li>
-		</ul>
+				<h4 class="colorrojo">Traductor</h4>
+				<ul>			
+					<li>Javier Eguiluz</li>
+				</ul>
 
-		<h4 class="colorrojo">Licencia</h4>
-		<ul>			
-			<li>CC BY-SA 3.0 Creative Commons</li>
-			<li>Atribucion - Compartir igual 3.0</li>
-		</ul>
+				<h4 class="colorrojo">Licencia</h4>
+				<ul>			
+					<li>CC BY-SA 3.0 Creative Commons</li>
+					<li>Atribucion - Compartir igual 3.0</li>
+				</ul>
 		
-	</div>
-
+			</div>
 		</div>
 	</div>
 	
