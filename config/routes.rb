@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :people
+  resources :countries
+  get 'comments/index'
+  resources :people do
+    resources :comments
+  end
 
   get 'welcome/index'
 

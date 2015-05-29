@@ -1,0 +1,23 @@
+<h1>Lista comments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre comentador</th>
+      <th>comentario</th>
+      <th>usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.commenter %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.person %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

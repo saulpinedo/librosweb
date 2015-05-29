@@ -9,8 +9,112 @@
 
   <%= csrf_meta_tags %>
 
+
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '471049596391631',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 </head>
 <body>
+
+
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '471049596391631',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2' // use version 2.2
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script>
+
 
 	<div id="plomo", class="menu-isquierdo col-md-2" >
 			<div class="titulo">
@@ -25,15 +129,28 @@
 				<li class="babajo"><i class="fa fa-wechat fa-1x"></i> Foros</li>
 				<li class="babajo"><i class="fa fa-search fa-1x"></i> Buscar</li>
 			</ul>
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+			<div id="status">
+			</div>
+
+		<!-- Facebook Badge START --><a href="https://www.facebook.com/saul.pinedo.ramallo" title="Sa&#xfa;l Asdasd" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">Saúl Asdasd</a><br /><a href="https://www.facebook.com/saul.pinedo.ramallo" title="Sa&#xfa;l Asdasd" target="_TOP"><img class="img" src="https://badge.facebook.com/badge/625933427.495.156108641.png" style="border: 0px;" alt="" /></a><br /><a href="https://www.facebook.com/badges/" title="Crea tu propia insignia" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">Crea tu insignia</a><!-- Facebook Badge END -->	
+
 	</div>
 	
-	<div class="central1 col-md-10" > 
+	<div class="central1" > 
 	
-		<div class="col-md-8">
+		<div class="col-md-8 contenedorcentral">
 			<%= yield %>
 		</div>	
 
-		<div class="acomodar-derecha col-md-3">
+		<div class="acomodar-derecha col-md-4">
+			<!--paginaaaa -->	
+			<div class="fb-page" data-href="https://www.facebook.com/1468291583416184?sk=timeline" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/1468291583416184?sk=timeline"><a href="https://www.facebook.com/1468291583416184?sk=timeline">Hospital Municipal Nuestra Señora del Rosario</a></blockquote></div></div>
+
+
+
+
 			<%= image_tag("railslibro.png")  %>
 			<div class="textoderecha">
 				<h4 class="colorrojo"> Titulo</h4>
@@ -56,7 +173,10 @@
 					<li>CC BY-SA 3.0 Creative Commons</li>
 					<li>Atribucion - Compartir igual 3.0</li>
 				</ul>
-		
+				
+
+
+
 			</div>
 		</div>
 	</div>

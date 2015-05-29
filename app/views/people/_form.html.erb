@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name , :placeholder => "escriba aqui", class:"form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
+  <div class="field form-group">
+    <%= f.label :edad %><br>
+    <%= f.number_field :age , :placeholder => "escriba aqui" , class:"form-control"   %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field form-group">
+    <%= f.label :Ciudad %><br>
+    <%= f.collection_select :country_id, Country.order(:name),:id,:name, include_blank: true%>
+    
+  </div>
+<!--.collect{ |c| [ c.name] }-->
+  <div class="actions" >
+    <%= f.submit value:"Guardar", class:"btn btn-primary"%>
   </div>
 <% end %>

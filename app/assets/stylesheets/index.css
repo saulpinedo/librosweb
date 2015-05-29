@@ -7,11 +7,12 @@
     max-width: 210px;
     height: 1000%;
     float: left;  
-    position: fixed; 
+    position: fixed;
+     
  }
  .central1{
     margin-left: 200px;
-    max-width: 880px;
+    
  }
 #plomo ul{
     padding-left: 0;
