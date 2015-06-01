@@ -20,9 +20,15 @@
     <%= f.number_field :age , :placeholder => "escriba aqui" , class:"form-control"   %>
   </div>
   <div class="field form-group">
+    <%= f.label :genero %><br>
+    <%= f.radio_button :gender, "masculino" %>
+    <%= f.label :masculino %>
+    <%= f.radio_button :gender, "femenino"  %>
+    <%= f.label :femenino %>
+  </div>
+  <div class="field form-group">
     <%= f.label :Ciudad %><br>
     <%= f.collection_select :country_id, Country.order(:name),:id,:name, include_blank: true%>
-    
   </div>
 <!--.collect{ |c| [ c.name] }-->
   <div class="actions" >
