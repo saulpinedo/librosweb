@@ -28,8 +28,13 @@
   </div>
   <div class="field form-group">
     <%= f.label :Ciudad %><br>
-    <%= f.collection_select :country_id, Country.order(:name),:id,:name, include_blank: true%>
+    <%= f.collection_select :country_id, Country.order(:name),:id,:name%>  <!--include_blank: true-->
   </div>
+
+  <div class="field form-group">
+  <%= f.label :image %><br>
+  <%= f.file_field :image %>
+</div>
 <!--.collect{ |c| [ c.name] }-->
   <div class="actions" >
     <%= f.submit value:"Guardar", class:"btn btn-primary"%>

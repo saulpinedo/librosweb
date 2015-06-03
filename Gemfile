@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+# gema perperclip
+gem 'paperclip'
 # gema de iconos
 gem 'font-awesome-sass'
 # gema boostrap

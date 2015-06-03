@@ -4,7 +4,11 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
+    if params[:buscar]
+      @people = Person.search(params[:buscar]).order("created_at DESC")
+    else
     @people = Person.all
+    end
   end
 
   # GET /people/1
@@ -70,6 +74,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :age, :gender, :country_id)
+      params.require(:person).permit(:name, :age, :gender, :country_id, :image)
     end
 end

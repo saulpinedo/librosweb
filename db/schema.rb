@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529010452) do
+ActiveRecord::Schema.define(version: 20150601191243) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -32,10 +32,14 @@ ActiveRecord::Schema.define(version: 20150529010452) do
   create_table "people", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "country_id"
     t.string   "gender"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "people", ["country_id"], name: "index_people_on_country_id"

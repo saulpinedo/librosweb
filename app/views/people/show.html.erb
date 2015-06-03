@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 <table class="table">
 	<tbody>	
+    <tr>
+      <td><p>
+        <strong>foto</strong>
+        <%= image_tag @person.image.url(:medium) %>
+      </p></td>
+    </tr>
 		<tr>
 			<td><p>
 			  <strong>Name:</strong>
